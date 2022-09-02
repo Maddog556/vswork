@@ -1,0 +1,17 @@
+#head {
+    text-align: center;
+    font-size: 100px;
+}
+#clickMe{
+    font-size: 50px;
+    align-items: center;
+    justify-content: center;
+}
+#square{
+    height: 150px;
+    width: 150px;
+    background-color: black;
+}
+body{
+    align-content: center;
+}
