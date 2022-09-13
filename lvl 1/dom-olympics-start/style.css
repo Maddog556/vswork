@@ -26,12 +26,12 @@
     padding: 5px;
 }
 
-.right {
+.messageRight {
     align-self: flex-end;
     background-color: lightblue;
 }
 
-.left {
+.messageLeft {
     align-self: flex-start;
     background-color: burlywood;
 }
