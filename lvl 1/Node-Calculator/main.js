@@ -8,7 +8,7 @@ var firstNumber = readline.questionInt("please enter your first number: ");
 var secondNumber = readline.questionInt("please enter your second number: ");
 
 // please enter the operation to perform :add,sub,mul,div(then store the operation)
-var enterOperator = readline.questionInt("please enter the operation to perform :add,sub,mul,div ");
+var enterOperator = readline.question("please enter the operation to perform :add,sub,mul,div ");
 
 // function that adds 2 numbers and reurns the result
 function addTwoNumbers(firstNumber, secondNumber){
