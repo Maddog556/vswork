@@ -15,7 +15,6 @@ var movieSeers = [
       gender: "male"
     },{
       name: "Madeline",
-      age: 80,
       gender: "female"
     },{
       name: "Cheryl",
