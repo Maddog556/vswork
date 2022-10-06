@@ -26,7 +26,6 @@ function Enemy ( enemyName,enemyHp,holdingItem){
     this.enemyHp = enemyHp;
     this.holdingItem = holdingItem;
 }
-// maybe here with let name
 let activeEnemy = new Enemy();
 
 const enemyCreation = ["Big Tim","little Bobby","Tiny Pinky","King Kung Fu"];
@@ -35,8 +34,8 @@ let defeatedEnemy = [];
 
 // every time the player walks use random algorithm will run to determine if a enemy appeared
    function random() { 
-    return Math.floor(Math.random()* (20)+ 1);
-   }
+    return Math.floor(Math.random()*(20)+ 1);
+   } 
 // Waliking
 // walking console will ask the player to use "w" to walk 
 console.clear()
@@ -90,12 +89,14 @@ function battle() {
         }
     }
 // this is when the fight happens and adds iteams and/or removes hp 
+// Function parameters are listed inside the parentheses in the function definition.
+// Function arguments are the values received by the function when it is invoked.
+// Inside the function, the arguments (the parameters) behave as local variables
 function fight(activeEnemy, isFighting){
     console.clear();
     if (activeEnemy.enemyHp <= 0) {
         readline.keyInPause("You have beaten " + activeEnemy.enemyName + "!")
         activePlayer.hp += 10;
-        // problem here
         // console.log(activeEnemy, "testing");
         // console.log("defeatedEnemy Arry",defeatedEnemy)
         defeatedEnemy.push(activeEnemy.enemyName);
