@@ -1,0 +1,30 @@
+body{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 50px;
+    width:100px;
+    grid-auto-rows: minmax(100px,auto);
+}
+.adding{
+    grid-column: 1;
+    background-color: aqua;
+}
+
+.subtr{
+    grid-column: 2;
+    background-color: brown;
+}
+
+.muli{
+    grid-column: 3;
+    background-color: chartreuse;
+}
+#val2{
+    margin-top: 10px;
+}
+#val4{
+    margin-top: 10px;
+}
+#val6{
+    margin-top: 10px;
+}
