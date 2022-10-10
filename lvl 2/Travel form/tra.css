@@ -1,0 +1,9 @@
+body{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    width: 150px;
+    grid-auto-rows: auto;
+}
+#female{
+    grid-column: 2;
+}
