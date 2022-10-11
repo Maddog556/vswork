@@ -1,21 +1,35 @@
-let form = document.getElementsByClassName("airForm");
-let submit = document.getElementById("submit");
+const form = document.getElementById("flight");
+var submit = document.querySelector("#submit");
 
-function formAlert(){
-    let fName= form.elements["fName"].value;
-    let lName= form.elements["lName"].value;
-    let age= form.elements["age"].value;
-    let gender= form.elements["gender"].value;
-    let location= form.elements["location"].value;
-    let diet= [];
-    if (form.elements["vegan"].checked){
-        diet.push(document.getElementById("vegan").value);
-    } if(form.elements["kosher"].checked){
-        diet.push(document.getElementById("kosher").value);
-    } if(form.elements["lactose"].checked){
+
+function formAlert() {
+    console.log("form alert was called")
+    var firstName = form.elements["first-name"].value;
+    console.log(firstName)
+    var lastName = form.elements["last-name"].value;
+    var age = form.elements["age"].value;
+    var gender = form.elements["gender"].value;
+    var location = form.elements["travelLocation"].value;
+    var diet =[];
+    if (form.elements['vegetarian'].checked) {
+        diet.push(document.getElementById("vegetarian").value);
+    }
+    if (form.elements['lactose'].checked) {
         diet.push(document.getElementById("lactose").value);
     }
-    alert("First Name " + fName + "\nLast Name " + lName + "\NAge " + age + "\nGender "+ gender + "\n Location" + location + "/nDiet" +diet)
+    if (form.elements['paleo'].checked) {
+        diet.push(document.getElementById("paleo").value);
+    }
+console.log(firstName)
+   
+
+    alert("First Name: " + firstName + "\nLast Name: " + lastName + "\nAge: " + age + "\nGender: " + gender + "\nTravel Location: " + location + "\nDiet: " + diet + "\nAwesome, now go get some food");
 }
-// problem here 
-submit.addEventListener("click", formAlert);
+
+
+
+form.addEventListener("submit", function(e){
+    e.preventDefault() 
+    console.log('form was submitted')
+    formAlert()
+})
