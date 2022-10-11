@@ -1,0 +1,63 @@
+body{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(6,1fr);
+}
+h1{
+    color: rgb(183, 0, 255);
+    text-align: center;
+    grid-row: 1;
+    grid-column: 1/-1;
+}
+#goombas{
+    grid-column: 1 / 2;
+    grid-row: 2;
+}
+#goomba{
+    width: 150px;
+    height: 150px;
+}
+#bombs{
+    grid-column: 2 /3;
+    grid-row: 2;
+}
+#boom{
+    width: 150px;
+    height: 150px;
+}
+#cheep{
+    grid-column: 3/4;
+    grid-row: 2;
+}
+#imgCheep{
+    width: 150px;
+    height: 150px;
+}
+#subBtn{
+    grid-column: 2/3;
+    grid-row: 4;
+    width: 60px;
+    height: 20px;
+}
+#clrBtn{
+    grid-column: 2/3;
+    grid-row: 4;
+    width: 60px;
+    height: 20px;
+    margin-left: 70px;
+}
+#info{
+    grid-column: 1;
+    grid-row: 5
+}
+#outText{
+    margin-top: 100px;
+    grid-column: 2/3;
+    grid-row: 3;
+}
+#outPut{
+    grid-column: 2/3;
+    grid-row:3;
+    margin-top: 100px;
+    margin-left: 120px;
+}
