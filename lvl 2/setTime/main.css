@@ -1,0 +1,34 @@
+
+
+#setTime{
+    display: grid;
+    grid-template-columns: repeat(6,300px);
+    grid-template-rows: repeat(6,300px);
+}
+#counter{
+    grid-column: 1;
+    grid-row: 1;
+}
+#output{
+    grid-column: 1;
+    grid-row: 1;
+    margin-left: 100px;
+}
+#last{
+    grid-column: 1;
+    grid-row: 2;
+}
+#record{
+    grid-column: 1;
+    grid-row: 2;
+    margin-left: 120px;
+}
+#time{
+    grid-column: 3;
+    grid-row: 1;
+   font-size: 150px;
+}
+#click{
+    grid-column: 2;
+    grid-row: 3;
+}
