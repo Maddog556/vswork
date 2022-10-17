@@ -9,9 +9,6 @@ let lastNum = document.getElementById("record")
 // setting the numbers values 
 let numberOfClicks = 0
 output.value=numberOfClicks
-// saveing to localStorage
-// let storage = localStorage.setItem(output,numberOfClicks);
-  
 
 //when btn is click adds 1 to the counter
 btn.addEventListener("click", event =>{
@@ -19,7 +16,7 @@ btn.addEventListener("click", event =>{
     output.value = numberOfClicks +=1;
 localStorage.setItem(output,numberOfClicks);
 })
-
+// saveing to localStorage
 let count = parseInt(localStorage.getItem(output,numberOfClicks));
 lastNum.append(count)
 
