@@ -15,7 +15,7 @@ function total(arr) {
     },"");
  }
  
- console.log(stringConcat([1,2,3])); // "123"
+ console.log(JSON.stringify(stringConcat([1,2,3]))); // "123"
   
 
 // Turn an array of voter objects into a count of how many people voted
