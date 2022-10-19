@@ -37,6 +37,7 @@ function login(username, password){
 }
 
 try {
+    //here is where the code was input wrong making it trip 
   login("sat", "123abc")
   console.log("success")
 } catch(err){
