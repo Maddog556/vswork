@@ -1,0 +1,148 @@
+
+
+@import url(http://fonts.googleapis.com/css?family=Julius+Sans+One|Libre+Baskerville:400,400italic);
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    color: #555753; 
+    background: #fff;
+    /* font-family: 'Libre Baskerville', sans-serif; */
+    font: 75% 
+  }
+.container{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: repeat(7,1fr);
+}
+/* .container > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+} */
+.container header{
+    grid-column: 1 / -1 ;
+    grid-row: 1;
+    height: 220px;
+    color: #fff;
+    padding: 20px 0 70px 0;
+    /* background: #2d6360 50% 0 url(img/huntington.jpg) no-repeat; old IE fallback */
+    background-attachment: fixed, fixed, fixed, scroll;
+    background-image: url(img/contours.png), url(img/noise.png), url(img/gridlines.png), url(img/huntington.jpg);
+    background-position: 0 0, 0 0, -5px -25px, 0 50%;
+    background-repeat: repeat, repeat, repeat, no-repeat;
+    background-size: auto, auto, auto, cover;
+    text-align: center
+}
+/* .container header{
+    background: url(img/enso.svg);
+    background-repeat: no-repeat;
+    background-size: 10%;
+    opacity: 0.6;
+} */
+.container header h1{
+  position: absolute;
+  left: 300px;
+  top: 110px;
+  font-family: 'Julius Sans One', sans-serif;
+  font-size: 3.2em;
+}
+.container header h2{
+    position: absolute;
+    left: 300px;
+    top: 175px;
+    font-family: 'Libre Baskerville', sans-serif;
+    opacity: 0.5;
+}
+.cell-two{
+    grid-column: 2;
+    grid-row: 1;
+    height: 70px;
+    width: 450px;
+    left: 50px;
+    margin-top: 80px;
+    opacity: 0.4;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background-color: #717271;
+    color: #fff;
+    border-color: #9b9b9b;
+}
+.cell-two:hover{
+    background-color: #949494;
+}
+.container ul{
+    grid-column: 2;
+    grid-row: 2 / 4;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: center;
+    margin-left: 80px;
+}
+.container ul li {
+    height: 80px;
+}
+.container div.par1{
+    grid-row: 2;
+    grid-column: 1;
+    margin-left: 200px;
+    margin-right: 50px;
+}
+.container div.par1 h3{
+    font-family: 'Julius Sans One', sans-serif;
+    color: #2e484c;
+    font-size: 28.8px;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+}
+.container div.par1 p {
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-family: 'Libre Baskerville', sans-serif;
+    
+}
+.container div.par1 :nth-of-type(2){
+    margin-top: 20px;
+    color: chartreuse;
+}
+.container div.par2{
+    grid-row: 3;
+    grid-column: 1;
+    margin-left: 200px;
+    margin-right: 50px;
+}
+.container div.par3{
+    grid-row: 4;
+    grid-column: 1;
+    margin-left:200px;
+    margin-right: 50px;
+}
+.container div.par4{
+    grid-row: 5;
+    grid-column: 1;
+    margin-left:200px;
+    margin-right: 50px;
+}
+.container div.par5{
+    grid-row: 6;
+    grid-column: 1 /-1;
+    height: 300px;
+    color: #fff;
+    padding: 20px 0 70px 0;
+    /* background: #2d6360 50% 0 url(img/huntington.jpg) no-repeat; old IE fallback */
+    background-attachment: fixed, fixed, fixed, scroll;
+    background-image: url(img/contours.png), url(img/noise.png), url(img/gridlines.png), url(img/huntington.jpg);
+    background-position: 0 0, 0 0, -5px -25px, 0 50%;
+    background-repeat: repeat, repeat, repeat, no-repeat;
+    background-size: auto, auto, auto, cover;
+    text-align: center
+}
