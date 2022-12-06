@@ -1,0 +1,62 @@
+{
+  "appetizers":[
+    {
+      "name":"Stuffed Mushrooms",
+      "ingredients":["baby mushrooms","butter","Garlic","breadcrumbs","salt","chesse","and parsley"],
+      "description":"Baby bella mushrooms are stuffed with garlicky, herby breadcrumbs and plenty of cheese in this easy appetizer and holiday side dish"
+    },
+    {
+      "name":"Pigs In A Blanket",
+      "ingredients":["crescent rolls","mini hot dogs","mustard","egg wash","poppy seeds"],
+      "description":"Mini hots hugged by soft crescent rolls great for getting the parrty started."
+    }
+  ],
+  "cold sandwiches":[
+    {
+      "name":"Chicken Salad Sandwich",
+      "ingredients":["chicken Breast cold","lemon slices","dill","green apple","red onion","celery","mayonnaise","mustard","red wine"],
+      "description":"We add the crispy celery, tart apple and herbaceous dill for a bright and slightly tangy bite, but you could add things like bacon, olives and even kimchi! Whatever you put in it, it will keep for up to 5 days in the fridge in an airtight container."
+    },
+    {
+      "name":"Vegetarian Italian Sub",
+      "ingredients":["green olives","dark olives","artichikes","roasted peppers","Garlic","olive oil","capers","red wine"],
+      "description":"sandwich filled to the brim with all manner of cured meat, cheese, and refreshingly crisp vegetables."
+    }
+  ],
+  "hot sandwiches":[
+    {
+      "name":"Reuben Sandwich",
+      "ingredients":["rye bread","butter","russian dressing","swiss cheese","corned beef","sauerkraut"],
+      "description":" Not only is built on one of the best of all sandwich breads, rye of course, but it balances the salty, cured corned beef with tart sauerkraut and mild, almost creamy melted Swiss."
+    },
+    {
+      "name":"Ham & Cheese Sandwich",
+      "ingredients":["sourdough bread","mayonnaise","mustard","honey","swiss cheese","ham","dill pickels"],
+      "description":" a quick and simple honey mustard sauce, and briny pickles for crunch."
+    }
+  ],
+  "desserts":[
+    {
+      "name":"Key Lime Pie Mousse",
+      "ingredients":["graham crackers","heavy cream","powdered sugar","condensed milk","key lime juice","vanilla extract"],
+      "description":"This mousse is every bit as refreshing, with a fluffy texture and a crispy oat crumble we could eat on its own."
+    },
+    {
+      "name":"Chocolate Pots De Crème",
+      "ingredients":["heavy cream","egg yoks","white sugar","vanilla extract","chocolate"],
+      "description":"Somewhere between pudding and mousse, pots de crème somewhat defy explanation."
+    }
+  ],
+  "drinks":[
+    {
+      "name":"Old Fashioned",
+      "ingredients":["bourbon","angostura bitters","sugasr cubes","orange twist"],
+      "description":"There may be no better test of a bartender's mettle than ordering an Old Fashioned"
+    },
+    {
+      "name":"Cosmopolitan",
+      "ingredients":["citrus vodka","cointreau","lime juice","cranberry juice"],
+      "description":"The cosmo became almost ubiquitous in the '90s thanks to the TV show Sex and the City, but this spin on the martini remains just as tasty today as when Carrie Bradshaw made it famous"  
+    }
+  ]
+}

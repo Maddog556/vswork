@@ -71,7 +71,7 @@ constructor(name, totalCoins, status, hasStar){
         
     }
 }
-const user = new Player('', 0, 'big',false)
+const user = new Player('', 0, 'PowerUp',false)
 
 
 function random(){
