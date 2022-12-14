@@ -97,19 +97,19 @@ const voterResults = (inVoters) => {
       if(b.age >= 18 && b.age <= 25 && b.voted) {
         a.numYoungVotes++;
       }
-      if(b.age >= 18 && b.age <= 25) {
+      else if (b.age >= 18 && b.age <= 25) {
         a.numYoungPeople++;
       }
-      if(b.age >= 26 && b.age <= 35 && b.voted) {
+      else if(b.age >= 26 && b.age <= 35 && b.voted) {
         a.numMidVotesPeople++;
       }
-      if(b.age >= 26 && b.age <= 35) {
+      else if(b.age >= 26 && b.age <= 35) {
         a.numMidsPeople++;
       }
-      if(b.age >= 36 && b.age <= 55 && b.voted) {
+      else if(b.age >= 36 && b.age <= 100 && b.voted) {
         a.numOldVotesPeople++;
       }
-      if(b.age >= 36 && b.age <= 55) {
+      else if(b.age >= 36 && b.age <= 100) {
         a.numOldsPeople++;
       }
       return {...a};
