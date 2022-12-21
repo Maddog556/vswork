@@ -1,0 +1,13 @@
+#grid{
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(90, 1fr);
+}
+#grid div{
+    display: grid;
+    height: 50px;
+    width: 50px;
+    background-color: blueviolet;
+    margin: 20px;
+
+}
