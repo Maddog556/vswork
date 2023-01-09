@@ -1,4 +1,6 @@
 body{
+    margin: 20px;
+    margin-left: 100px;
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(6,1fr);
