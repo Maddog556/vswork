@@ -5,11 +5,12 @@ export default function BlogPost(props){
 
 return(
     <div className="blogpost">
-        <h2>{props.title}</h2>
-        <p>{props.subTitle}
-        <a href=''>{props.author}</a>
-        {props.date}
+        <h2 className="postTitle">{props.title}</h2>
+        <p className="subTitle">{props.subTitle}
+       <p className="p-author-date">Published By <a className="author-link" href=''>{props.author} </a>
+        on {props.date}</p>
         </p>
+        <hr />
     </div>
 )
 }

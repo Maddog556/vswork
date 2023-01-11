@@ -15,11 +15,11 @@ export default function BlogList() {
                     author = {item.author}
                     date ={item.date}
                     />
-
         )
     })
     return (
         <div className="">
+
             {post} 
             
         </div>

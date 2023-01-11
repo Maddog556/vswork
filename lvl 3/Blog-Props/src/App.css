@@ -1,0 +1,95 @@
+
+body{
+    font-size: 1.2rem;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+.backgroundimg{   
+    position: relative;  
+    filter: grayscale(25%);   
+    background-image: url('src/images/home.jpeg');   
+    background-repeat: no-repeat;   
+    background-size: cover;   
+    padding-bottom: 8rem;  
+    margin-bottom: 3rem;   
+    height: 532px;   
+    width: auto;  
+    background-position: center;   
+     
+}
+.navbar-brand{
+    color:black;
+    font-size: 22px;
+    font-weight: bold;
+}
+.navbar-brand:hover{
+    color: #aeb0b3;
+}
+.navTags{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+.nav-link{
+    color: black;
+    padding-right: 13px;
+}
+.nav-link:hover{
+    color: #aeb0b3;
+}
+.navItems{
+    text-decoration: none;
+    list-style: none;
+}
+.header-block{
+    padding-top: 150px;
+    
+}
+.headerTitle{
+    font-size: 81px;
+    text-align: center;
+    font-weight: 800;
+    color: black
+}
+.headerSub{
+    font-weight: 300;
+    font-size: 24px;
+    text-align: center;
+    color: black
+}
+div.blogpost{
+    padding-top: 20px;
+    margin-left: 570px;
+    margin-right: 592px;
+}
+.postTitle{
+    font-size: 36px;
+    font-weight: 800;
+}
+.subTitle{
+    font-size: 28px;
+}
+.p-author-date{
+    font-style: italic;
+    color:#6c757d ;
+}
+footer{
+    border-top: 1px black;
+}
+.icons{
+    color: black;
+    font-size: 50px;
+    text-align: center;
+    border-top: 1px black;
+}
+.fa-brands{
+    padding-left: 20px;
+}
+.copyright{
+    font-size: 17px;
+    font-style: italic;
+    text-align: center;
+}
