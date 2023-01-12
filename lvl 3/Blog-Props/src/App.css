@@ -24,7 +24,7 @@ body{
     font-weight: bold;
 }
 .navbar-brand:hover{
-    color: #aeb0b3;
+    color: rgb(0, 166, 207);
 }
 .navTags{
     width: 100%;
@@ -38,7 +38,7 @@ body{
     padding-right: 13px;
 }
 .nav-link:hover{
-    color: #aeb0b3;
+    color: rgb(0, 166, 207);
 }
 .navItems{
     text-decoration: none;
@@ -62,12 +62,26 @@ body{
 }
 div.blogpost{
     padding-top: 20px;
-    margin-left: 570px;
-    margin-right: 592px;
+    padding-left: 570px;
+    padding-right: 592px;
 }
 .postTitle{
     font-size: 36px;
     font-weight: 800;
+}
+.postTile-link{
+    text-decoration: none;
+    color: black;
+}
+.postTile-link:hover{
+    color: rgb(0, 166, 207);
+}
+.author-link{
+    text-decoration: none;
+    color:#6c757d;
+}
+.author-link:hover{
+    color: rgb(0, 166, 207);
 }
 .subTitle{
     font-size: 28px;
@@ -93,3 +107,11 @@ footer{
     font-style: italic;
     text-align: center;
 }
+
+@media(max-width: 1520px) {
+    div.blogpost{
+        padding-top: 20px;
+        padding-left: 200px;
+        padding-right: 200px;
+    }
+ }
