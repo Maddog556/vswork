@@ -13,7 +13,7 @@ return (
         <button onClick={props.bigdj2}className="big-dj-two">Big-DJ-2</button>
         <button onClick={props.bigdj3}className="big-dj-three">Big-DJ-3</button>
         <button onClick={props.bigdj4}className="big-dj-four">Big-DJ-4</button>
-        <button onClick={props.makeNoise}className="makeNoise">Make Noise</button>
+        <button onClick={props.makeNoise} className="makeNoise">Make Noise</button>
     </div>
     )
 }
