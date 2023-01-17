@@ -1,0 +1,38 @@
+body{
+  margin: 0px;
+}
+.dicebox{
+  padding-top: 30px;
+}
+.mainBox{
+  padding-left: 250px;
+}
+.numberDice{
+  display: flex;
+  gap: 10px;
+}
+.Number0{
+  border: 1px solid black;
+  width: 20px;
+  height: 20px;
+}
+.Number1{
+  border: 1px solid black;
+  width: 20px;
+  height: 20px;
+}
+.Number2{
+  border: 1px solid black;
+  width: 20px;
+  height: 20px;
+}
+.Number3{
+  border: 1px solid black;
+  width: 20px;
+  height: 20px;
+}
+.Number4{
+  border: 1px solid black;
+  width: 20px;
+  height: 20px;
+}
