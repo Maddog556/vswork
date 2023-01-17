@@ -1,0 +1,74 @@
+body{
+  margin: 0px;
+  background-color: darkgray;
+}
+
+.djContainer{
+  padding-left: 200px;
+  padding-top: 50px;
+  display: grid;
+  grid-template-columns: 200px 200px;
+  grid-template-rows: 200px 200px;
+  gap: 5px;
+  
+}
+.square1{
+  border: 1px solid black;
+  background-color: white;
+}
+.square2{
+  border: 1px solid black;
+  background-color: white;
+}
+.square3{
+  border: 1px solid black;
+  background-color: white;
+}
+.square4{
+  border: 1px solid black;
+  background-color: white;
+}
+.buttons{
+  gap: 2px;
+  padding-top: 30px;
+  padding-left: 250px;
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 50px 50px;
+}
+.dj-small{
+  height: 30px;
+  width: 100px;
+}
+.party-dj{
+  height: 30px;
+  width: 100px;
+}
+.left-blue{
+  height: 30px;
+  width: 100px;
+}
+.right-blue{
+  height: 30px;
+  width: 100px;
+}
+.big-dj-one{
+  height: 30px;
+  width: 100px;
+}
+.big-dj-two{
+  height: 30px;
+  width: 100px;
+}
+.big-dj-three{
+  height: 30px;
+  width: 100px;
+}
+.big-dj-four{
+  height: 30px;
+  width: 100px;
+}
+.makeNoise{
+  height: 30px;
+  width: 100px;
+}
