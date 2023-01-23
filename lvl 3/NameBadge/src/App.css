@@ -1,0 +1,46 @@
+body{
+    margin: 0px;
+    background-color: beige;
+}
+.title{
+    text-align: center;
+}
+Form{
+    margin-top: 50px;
+    margin-left: 510px;
+    margin-right: 540px;
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
+    grid-template-rows: 60px 60px 100px 60px;
+    justify-items: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.textArea{
+    position: relative;
+    left: 113px;
+    bottom: 9px;
+    height: 50px;
+    width: 400px;
+    grid-column: 1 / 2;
+    grid-row: 3;
+    resize:none;
+
+}
+.submitBtn{
+    grid-column: 2;
+    grid-row: 4;
+}
+
+.badge{
+    display: flex;
+    flex-direction: column;
+    margin-left: 621px;
+    margin-right: 688px;
+    padding: 50px;
+}
+.border{
+    border: 1px solid black;
+    background-color: white;
+    
+}
