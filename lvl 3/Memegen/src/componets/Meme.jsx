@@ -1,5 +1,5 @@
 import React from "react";
-import Memesdata from "../Memesdata";
+
 
 export default function Meme(){
 
@@ -9,16 +9,22 @@ export default function Meme(){
         randomImage: "http://i.imgflip.com/1bij.jpg"
     })
 
-    const [allMemeImages, setAllMemeImages] = React.useState(Memesdata)
+    const [allMemes, setAllMemes] = React.useState([])
+    
 
-    function getMemeImage(){
-    const memesArray = allMemeImages.data.memes
-    const randomNumber = Math.floor(Math.random() * memesArray.length)
-    const url = memesArray[randomNumber].url
-    setMeme(prevMeme =>({
-        ...prevMeme,
-        randomImage: url
-    }))
+    React.useEffect(() => {
+        fetch("https://api.imgflip.com/get_memes")
+            .then(res => res.json())
+            .then(data => setAllMemes(data.data.memes))
+    }, [])
+
+    function getMemeImage() {
+        const randomNumber = Math.floor(Math.random() * allMemes.length)
+        const url = allMemes[randomNumber].url
+        setMeme(prevMeme => ({
+            ...prevMeme,
+            randomImage: url
+        }))
     
 }
 function handleChange(event){
@@ -28,6 +34,8 @@ function handleChange(event){
         [name]: value
     }))
 }
+
+
     return(
         <div>
             <div className="form">
@@ -62,6 +70,9 @@ function handleChange(event){
             <img src={meme.randomImage} className="meme--image" />
             <h2 className="meme--text top">{meme.topText}</h2>
             <h2 className="meme--text bottom">{meme.bottomText}</h2>
+            </div>
+            <div>
+                <button className="saveBtn" onClick={handleSave}>Save Meme to Your List</button>
             </div>
 
         </div>
