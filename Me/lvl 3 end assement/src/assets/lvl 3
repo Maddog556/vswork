@@ -1,0 +1,53 @@
+
+// form,js child component
+
+
+// import React, { useState } from "react";
+
+
+// function Form({list,setList}) {
+//  console.log('this is props',list,setList)
+ 
+
+
+//   const initState = {
+//     firstName:""
+    
+//   }
+//   const [inputs,setInputs] = useState(initState)
+  
+  
+//   const handleChange = (e) => {
+//     console.log(inputs)
+//     setInputs(preInput => {
+//       return{
+//         ...preInput,
+//         [e.target.name]: e.target.value
+//       }
+//     })
+//   };
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     setList(preList => [...preList, inputs])
+//     setInputs(initState)
+//   };
+
+//   return (
+//     <div>
+//     <form onSubmit={handleSubmit}>
+//       <input
+//         type="text"
+//         placeholder="First Name"
+//         name="firstName"
+//         value={inputs.firstName}
+//         onChange={handleChange}
+//       />
+//       <button type="submit">Submit</button>
+//     </form>
+ 
+//     </div>
+//   );
+// }
+
+// export default Form;
