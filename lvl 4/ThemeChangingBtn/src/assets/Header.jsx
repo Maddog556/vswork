@@ -3,7 +3,7 @@ import {ThemeContext} from "./ThemeManager";
 
 export default function Header(props){
 
-     const context = useContext(ThemeContext)
+     const {color} = useContext(ThemeContext)
    
     
     return (
