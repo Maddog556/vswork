@@ -1,0 +1,14 @@
+.row{
+color: aliceblue;
+margin-left: 20px;
+}
+.rowPosters{
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    padding: 20px;
+}
+.rowPoster{
+    height: 100px;
+    width: 50px;
+}
