@@ -1,0 +1,41 @@
+.About-wrapper{
+    color: aliceblue; 
+}
+.about{
+    padding-left: 50px;
+    padding-right: 50px;
+    height: 100%;
+}
+.about-title{
+    font-size: 50px;
+    display: flex;
+    text-align: center;
+    font-weight: 800;
+    color: crimson;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    align-items: center;
+    justify-content: center;
+}
+.P1{
+    font-size: xx-large;
+}
+.P2{
+    padding-top: 20px;
+    font-size: xx-large;
+}
+.P3{
+    padding-top: 20px;
+    font-size: xx-large;
+}
+.Thank-you{
+    font-size: 50px;
+    padding-top: 30px;
+    color: crimson;
+}
+.contact{
+    padding-left: 100px;
+    padding-top: 20px;
+    font-size: x-large;
+    padding-bottom: 100px;
+}

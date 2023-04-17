@@ -1,0 +1,73 @@
+.blockWrapper{
+    color: aliceblue; 
+    margin: auto 0;
+    height: 100%;
+    width: 100%;
+}
+
+.intro{
+    padding-left: 50px;
+    padding-right: 50px;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+.intro-title{
+    font-size: 50px;
+    display: flex;
+    text-align: center;
+    font-weight: 800;
+    color: crimson;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    align-items: center;
+    justify-content: center;
+}
+.sub-title{
+    font-size: 50px;
+    display: flex;
+    text-align: center;
+    font-weight: 800;
+    color: crimson;
+    padding-top: 20px;
+    padding-bottom: 100px;
+    align-items: center;
+    justify-content: center;
+}
+.Why{
+    font-size: xx-large;
+    padding-bottom: 20px
+}
+.why2{
+    font-size: xx-large;
+    padding-bottom: 100px;
+}
+.intro-P1{
+    font-size: 15px;
+    
+}
+.intro-P2{
+    font-size: 15px;
+    padding-top: 20px;
+}
+.intro-P3{
+    padding-top: 20px;
+    font-size: 15px;
+    margin-bottom: 300px;
+}
+
+.Flexintro{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.Signbtn{
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: 500;
+}
+.Signbtn:hover{
+    background-color: crimson;
+    color: rgb(255, 255, 255);
+}

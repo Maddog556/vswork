@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from "react";
 import './Banner.css'
 import axios from './Data/axios'
-import requests from "./Data/Requests";
+import requests from "./Data/Requests.jsx";
 
 function Banner() {
 
@@ -16,7 +16,7 @@ function Banner() {
     useEffect(() => {
    
         async function fetchData(){
-          const Request = await axios.get(requests.fetchNeflixOriginals);
+          const Request = await axios.get(requests.fetchPopular);
           setMovie(
             Request.data.results[
               Math.floor(Math.random() * Request.data.results.length)
@@ -44,8 +44,8 @@ return(
    <div className="banner_contents">
     <h1 className="banner_title">{movie?.title || movie?.name || movie?.orignal_Name}</h1>
     <div className="banner_buttons">
-      <button className="banner_button">Play</button>
-      <button className="banner_button">My list</button>
+      <button className="banner_button">Play Trailer</button>
+      <h1>Rating {movie?.vote_average} out of 10</h1>
     </div>
     <h1 className="banner_description">{truncate(movie?.overview || `No Movie Description`,150)}</h1>
    </div>
