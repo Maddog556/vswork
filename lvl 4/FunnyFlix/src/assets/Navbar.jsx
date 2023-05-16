@@ -2,16 +2,9 @@ import React from "react";
 import { BrowserRouter as Router,Routes,Route,Link } from 'react-router-dom'
 import './Navbar.css'
 
-
-
 function NavBar() {
     
-  
-
 return(
-
-
-    
 
     <nav className='nav-tabs'>
                 <div className="logo"></div>
@@ -27,14 +20,7 @@ return(
                 </Link>
           
     </nav>
-
-   
-
-
-
 )
 } 
-
-
 
 export default NavBar

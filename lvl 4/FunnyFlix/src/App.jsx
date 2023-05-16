@@ -29,8 +29,6 @@ const [signedIn, setSignedIn] = useState(false)
     </Context.Provider>
   </Router>
 
-  
-
   </div>
   )
 }
