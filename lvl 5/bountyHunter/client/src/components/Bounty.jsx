@@ -50,8 +50,6 @@ function HandleFilter(e){
   .catch(err => console.log(err))
   }
 }
-
-
   useEffect(() => {
     getBounties()
   },[])
