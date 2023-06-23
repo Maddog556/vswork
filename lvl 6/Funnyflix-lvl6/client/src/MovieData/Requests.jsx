@@ -1,5 +1,4 @@
 
-
 const API_KEY = "0f863c91e0a82c7e4550cee8744a8147"
 
 const requests = {
