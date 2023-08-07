@@ -1,38 +1,26 @@
-import React,{useEffect,useContext} from 'react'
-import {UserContext} from '../context/UserProvider'
+import { useContext, useEffect } from "react"
+import { UserContext } from "../context/UserProvider.jsx"
+import PostForm from "./PostForm.jsx"
+import UserPostList from "./UserPostList.jsx"
 
+function Profile(){
 
+    const {user: {username}, addPost, posts } = useContext(UserContext)
 
+    return(
+        <div>
 
-function Profile() {
+            <div className="profile-container">
+                <h1>Welcome {username}!</h1>
+                <PostForm addPost={addPost}/>
+            </div>
 
-
-  const { user: {
-    username,
-    _id
-  },
-    addIssue,
-    upVote,
-    downVote,
-    issueList,
-    deleteIssue,
-    deleteComment,
-    setPage,
-    page,
-    userErr,
-    setUserErr,
-    sortByVotes
-  } = useContext(UserContext)
-  
-  
-  useEffect(() => {
-    setPage('profile')
-  },[])
-  
-
-  return (
-    <div>Profile</div>
-  )
+            <div className="profile-post-container">
+                <h3>Your Posts</h3>
+                <UserPostList posts = {posts}/>
+            </div>
+        </div>
+    )
 }
 
 export default Profile

@@ -1,43 +1,48 @@
-import './App.css'
-import React, { useContext } from 'react'
-import { Routes, Route, Navigate } from 'react-router-dom'
-import Nav from './components/Nav'
-import Auth from './components/Auth'
-import Profile from './components/Profile'
-import Public from './components/Public'
-import ProtectedRoute from './components/ProtectedRoute'
-import { UserContext } from './context/UserProvider'
-// import Footer from './UnFunctional/Footer'
+import './App.css';
+import Navbar from './components/Navbar';
+import {Routes, Route, Navigate} from 'react-router-dom'
+import Auth from './components/Auth';
+import Profile from './components/Profile';
+import { useContext, useEffect } from 'react';
+import { UserContext } from './context/UserProvider';
+import ProtectedRoute from './components/ProtectedRoute';
+import PublicPostList from './components/PublicPostList';
+
 
 
 function App() {
-  const { token, logout } = useContext(UserContext)
+
+  const { token, logout, allPosts, upKeepPosts, upVotePost, downVotePost } = useContext(UserContext)
+
+
+  useEffect(() => {
+        upKeepPosts()
+    }, [])
+  
+
   return (
-    <div className='app-container'>
-      {/* conitional veiw hides the navbar and have to login to see the site  */}
-      { token && <Nav logout={logout} token={token} />}
-      <div className='page-container'>
+    <div className="App">
+      
+      {token && <Navbar logout= {logout}/>}
+
       <Routes>
-        <Route
-          path="/"
-          element={token ? <Navigate replace to="/profile" /> : <Auth />}
-        />
-        <Route
-          path="/profile"
-          element={<ProtectedRoute token={token} redirectTo='/'>
-              <Profile/>
-          </ProtectedRoute>}
-        />
-        <Route
-          path="/public"
-          element={<ProtectedRoute token={token} redirectTo='/'>
-          <Public/>
-      </ProtectedRoute>}
-        />
+
+        <Route path='/' element = { token ? <Navigate to='/profile' /> : <Auth />} />
+
+        <Route path='/profile' 
+        element = {
+          <ProtectedRoute token={token} >
+            <Profile />
+          </ProtectedRoute>}/>
+
+        <Route path= '/posts' 
+        element = {<ProtectedRoute token={token}>
+          <PublicPostList allPosts={allPosts} upKeepPosts= {upKeepPosts} upVotePost={upVotePost} downVotePost= {downVotePost}/>
+        </ProtectedRoute>}/>
+
       </Routes>
-      </div>
     </div>
-  )
+  );
 }
 
 export default App;

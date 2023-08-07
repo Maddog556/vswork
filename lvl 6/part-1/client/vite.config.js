@@ -11,7 +11,7 @@ import react from '@vitejs/plugin-react'
         target: 'http://localhost:9000/',
         changeOrigin: true,
       },
-      '/api':{
+      '/main':{
         target: 'http://localhost:9000/',
         changeOrigin: true,
       },

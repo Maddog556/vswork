@@ -1,251 +1,166 @@
-/* eslint-disable react/prop-types */
-import React, { useState, createContext } from 'react'
+import { createContext, useState } from "react";
 import axios from 'axios'
+
 
 export const UserContext = createContext()
 
-// INSERTS TOKEN PRIOR TO REQUEST
 const userAxios = axios.create()
+
 userAxios.interceptors.request.use(config => {
-  const token = localStorage.getItem("token")
-  config.headers.Authorization = `Bearer ${token}`
-  return config
+    const token = localStorage.getItem('token')
+    config.headers.Authorization = `Bearer ${token}`
+    return config
 })
 
-export default function UserProvider(props) {
 
-  const initState = {
-    user: JSON.parse(localStorage.getItem("user")) || {},
-    token: localStorage.getItem('token') || "",
-    issues: [],
-    errMsg: ""
-  }
+export default function UserProvider(props){
 
-  const [userState, setUserState] = useState(initState)
-  const [issueList, setIssueList] = useState([])
-  const [page, setPage] = useState("")
-  const [userErr, setUserErr] = useState("")
+    const initState = {
+        user: JSON.parse(localStorage.getItem('user')) || {},
+        token: localStorage.getItem('token') || "", 
+        posts: [],
+        errMsg: ''
+    }
 
-  // useEffect(() => {
-  //   sortByVotes()
-  // }, [issueList])
+    const [userState, setUserState] = useState(initState)
 
-  function sortByVotes() {
-    issueList && issueList.sort((a, b) => {
-      return b.votes - a.votes
-    })
-  }
+    const [allPosts, setAllPosts] = useState([])
 
-  function getAllIssues() {
-    userAxios.get("/api/issue")
-      .then(res => setIssueList(res.data))
-      .then(sortByVotes())
-      .catch(err => console.log(err))
 
-  }
+    function signup(credentials){
+        axios.post('/auth/signup', credentials)
+        .then(res => {
+            const { user, token} = res.data
+            localStorage.setItem('token', token)
+            localStorage.setItem('user', JSON.stringify(user))
+            setUserState(prevUserState => ({
+                ...prevUserState,
+                user, token
+            }))
+        })
+        .catch(err => handleAuthErr(err.response.data.errMsg))
+    }
 
-  function signup(credentials) {
-    axios.post("/auth/signup", credentials)
-      .then(res => {
-        const { user, token } = res.data
-        localStorage.setItem('token', token)
-        localStorage.setItem('user', JSON.stringify(user))
-        getAllIssues()
+    function login(credentials){
+        axios.post('/auth/login', credentials)
+        .then(res => {
+            const { user, token} = res.data
+            localStorage.setItem('token', token)
+            localStorage.setItem('user', JSON.stringify(user))
+            getAllPosts()
+            getUserPosts()
+            setUserState(prevUserState => ({
+                ...prevUserState,
+                user, token
+            }))
+        })
+        .catch(err => handleAuthErr(err.response.data.errMsg))
+    }
+
+    function logout(){
+        localStorage.removeItem('token')
+        localStorage.removeItem('user')
+        setUserState({
+            user: {},
+            token: "",
+            posts: []
+        })
+    }
+
+    function handleAuthErr(errMsg){
         setUserState(prevUserState => ({
-          ...prevUserState,
-          user,
-          token
+            ...prevUserState,
+            errMsg
         }))
-      })
-      .catch(err => handleAuthErr(err.response.data.errMsg))
-  }
+    }
 
-  function login(credentials) {
-    axios.post("/auth/login", credentials)
-      .then(res => {
-        const { user, token } = res.data
-        localStorage.setItem("token", token)
-        localStorage.setItem("user", JSON.stringify(user))
-        getAllIssues()
-        getUserIssues()
+    function resetAuthErr(){
         setUserState(prevUserState => ({
-          ...prevUserState,
-          user,
-          token
-        }))
-      })
-      .catch(err => handleAuthErr(err.response.data.errMsg))
-  }
+            ...prevUserState,
+            errMsg: ''
+        })
+        )
+    }
 
-  function logout() {
-    localStorage.removeItem("token")
-    localStorage.removeItem("user")
-    setUserState({
-      user: {},
-      token: "",
-      issues: []
-    })
-  }
-
-  function handleAuthErr(errMsg) {
-    setUserState(prevUserState => ({
-      ...prevUserState,
-      errMsg
-    }))
-  }
-
-  function resetAuthErr() {
-    setUserState(prevState => ({
-      ...prevState,
-      errMsg: ""
-    }))
-  }
-
-  function getUserIssues() {
-    userAxios.get("/api/issue/user")
-      .then(res => {
-        setUserState(prevUserState => ({
-          ...prevUserState,
-          issues: res.data
-        }))
-      })
-      .catch(err => console.log(err))
-  }
-
-  function addIssue(newIssue) {
-    userAxios.post("/api/issue", newIssue)
-      .then(res => {
-        setUserState(prevUserState => ({
-          ...prevUserState,
-          issues: [...prevUserState.issues, res.data]
-        }))
-        getAllIssues()
-        getUserIssues()
-      })
-      .catch(err => console.log(err.response.data.errMsg))
-  }
-
-  function deleteIssue(issueId) {
-    userAxios.delete(`/api/issue/${issueId}`)
-    .then(res => {
-      setIssueList(prev => prev.filter(issue => issue._id !== issueId))
-    })
- 
-    .catch(err => console.log(err))  
-  }
-
-  function upVote(votedIssue) {
-    issueList.forEach(issue => {
-      if (issue._id === votedIssue && userState.user._id === issue.user) {
-        return setUserErr("User cannot self vote")
-      } else if (issue._id === votedIssue && issue.votedUsers.includes(userState.user._id)) {
-        return setUserErr("User already voted")
-      } else if (issue._id === votedIssue) {
-        setUserErr("")
-        userAxios.put(`api/issue/upvote/${votedIssue}`)
-          .then(res => {
-            const updatedIssueArr = issueList.map(issue => {
-              if (votedIssue === issue._id) {
-                return res.data
-              } else {
-                return issue
-              }
-            })
-            setIssueList(
-              updatedIssueArr
-            )
-          })
-          .catch(err => console.log(err))
-      } else { return null }
-    })
-  }
-
-  function downVote(votedIssue) {
-    issueList.forEach(issue => {
-      if (issue._id === votedIssue && userState.user._id === issue.user) {
-        return setUserErr("User cannot self vote")
-      } else if (issue._id === votedIssue && issue.votedUsers.includes(userState.user._id)) {
-        return setUserErr("User already voted")
-      } else if (issue._id === votedIssue) {
-        setUserErr("")
-        return userAxios.put(`api/issue/downvote/${votedIssue}`)
-          .then(res => {
-            const updatedIssueArr = issueList.map(issue => {
-              if (votedIssue === issue._id) {
-                return res.data
-              } else {
-                return issue
-              }
-            })
-            setIssueList(
-              updatedIssueArr
-            )
-          })
-          .catch(err => console.log(err))
+    function getAllPosts(){
+        userAxios.get('/main/posts')
+        .then(res => setAllPosts(res.data))
+        .catch(err => console.log(err))
       }
+
+    function getUserPosts(){
+        userAxios.get('/main/posts/user')
+            .then(res => setUserState(prevUserState => ({
+                ...prevUserState,
+                posts: [...prevUserState.posts, ...res.data]
+            })))
+            .catch(err => console.dir(err.response.data.errMsg))
+    }
+
+    function addPost(newPost){
+        userAxios.post('/main/posts', newPost)
+            .then(res => {
+                setUserState(prevUserState => ({
+                    ...prevUserState,
+                    posts: [...prevUserState.posts, res.data]
+                }))
+                setAllPosts(prevPosts => ([
+                    ...prevPosts,
+                    res.data
+                ]))
+            })
+            .catch(err => console.dir(err.response.data.errMsg))
+    }
+    function deletePost(postId) {
+      userAxios.delete(`/main/post/${postId}`)
+      .then(res => {
+        setUserState(prev => prev.filter(post => post._id !== postId))
+      })
+   
+      .catch(err => console.dir(err.response.data.errMsg))  
+    }
+
+    function upKeepPosts(){
+        getUserPosts()
+        getAllPosts()
+    }
+
+    function upVotePost(postId){
+        userAxios.put(`/main/posts/upVote/${postId}`)
+        .then(res => {
+            console.log(res.data)
+            setAllPosts(prevPosts => prevPosts.map(post => postId !== post._id ? post : res.data))
+            setUserState(prevUserState => ({...prevUserState, posts: prevUserState.posts.map(post => postId !== post._id ? post : res.data)}))
+        })
+        .catch(err => console.log(err))
+    }
+
+    function downVotePost(postId){
+        userAxios.put(`/main/posts/downVote/${postId}`)
+    .then(res => {
+        setAllPosts(prevPosts => prevPosts.map(post => postId !== post._id ? post : res.data))
+        setUserState(prevUserState => ({...prevUserState, posts: prevUserState.posts.map(post => postId !== post._id ? post : res.data)}))
     })
-  }
+        .catch(err => console.log(err))
+    }
 
-  function addComment(commentIssue, issueId) {
-    userAxios.put(`/api/issue/addcomment/${issueId}`, commentIssue)
-      .then(res => {
-        const updateCommentsArr = issueList.map(issue => {
-          if (issueId === issue._id) {
-            issue.comments.push(commentIssue)
-            return commentIssue
-          } else {
-            return issue
-          }
-        })
-        setIssueList(
-          updateCommentsArr
-        )
-      })
-      .catch(err => console.log(err))
-  }
-
-  function deleteComment(comments, issueId) {
-    userAxios.put(`/api/issue/deletecomment/${issueId}`, comments)
-      .then(res => {
-        const updateCommentsArr = issueList.map(issue => {
-          if (issueId === issue._id) {
-            issue = res.data
-            return issue
-          } else {
-            return issue
-          }
-        })
-        setIssueList(
-          updateCommentsArr
-        )
-      })
-      .catch(err => console.log(err))
-  }
-
-
-  return (
-    <UserContext.Provider
-      value={{
-        ...userState,
-        signup,
-        login,
-        logout,
-        addIssue,
-        deleteIssue,
-        issueList,
-        upVote,
-        downVote,
-        addComment,
-        deleteComment,
-        setPage,
-        page,
-        resetAuthErr,
-        userErr,
-        setUserErr,
-        sortByVotes
-      }}>
-      {props.children}
-    </UserContext.Provider>
-
-  )
+    return(
+        <UserContext.Provider
+            value={{
+                ...userState,
+                signup,
+                login,
+                logout,
+                addPost, 
+                resetAuthErr,
+                allPosts,
+                upKeepPosts,
+                upVotePost,
+                downVotePost,
+                deletePost
+            }}
+        >
+            {props.children}
+        </UserContext.Provider>
+    )
 }

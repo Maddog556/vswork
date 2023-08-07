@@ -16,11 +16,10 @@ mongoose.connect(`mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@
 )
 
 //Routes
-app.use('/auth', require('./routes/authRouter.js'))
-app.use("/api", expressjwt({secret: process.env.SECRET, algorithms: ['HS256']}))
-// express-jwt is a npm package it is a gate keep it checks for token
-app.use('/api/issue', require('./routes/issueRouter.js'))
+app.use('/main', expressjwt({secret: process.env.SECRET, algorithms: ['HS256']}))
 
+app.use('/auth', require('./routes/authRouter.js'))
+app.use('/main/posts', require('./routes/postRouter.js'))
 //Error handler and to have these 4 params 
 app.use((err,req,res,next) => {
     console.log(err)

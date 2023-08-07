@@ -25,6 +25,7 @@ grid-column: 2;
 grid-row: 1;
 color: rgba(255, 255, 255, 0.071);
 }
+
 div.nav {
     grid-column: 2;
     grid-row: 1;
