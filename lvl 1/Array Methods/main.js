@@ -4,7 +4,6 @@ console.log("fruit: ", fruit);
 console.log("vegetables: ", vegetables);
 
 // 1. Remove the last item from the vegetable array.
-
 let reLast = vegetables.pop()
 console.log(reLast)
 
